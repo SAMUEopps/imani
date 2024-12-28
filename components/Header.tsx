@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaInfoCircle, FaCogs, FaEnvelope, FaPhone } from 'react-icons/fa'; // Import icons
+import { FaInfoCircle, FaCogs, FaPhone } from 'react-icons/fa'; // Import icons
 
 const Header: React.FC = () => {
   return (

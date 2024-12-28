@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 const PaymentManagement = () => {
-  const [payoutRequests, setPayoutRequests] = useState([
+  const [payoutRequests] = useState([
     { id: 1, amount: "$500", status: "Pending", date: "2024-12-20" },
     { id: 2, amount: "$1200", status: "Completed", date: "2024-12-15" },
   ]);

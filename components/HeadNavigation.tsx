@@ -5,15 +5,11 @@ import {
   FaBars,
   FaSearch,
   FaCompass,
-  FaShoppingBag,
   FaHeart,
   FaEnvelope,
   FaBell,
   FaTimes,
-  FaShoppingCart,
-  FaBox,
   FaBalanceScale,
-  FaBlog,
   FaLifeRing,
   FaSignOutAlt,
   FaUserAlt,
@@ -24,14 +20,14 @@ import { useRouter } from 'next/navigation'
 import { FaCartShopping } from "react-icons/fa6";
 
 const HeadNavigation: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [ setIsLoggedIn] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer open/close
 
   useEffect(() => {
     // Check localStorage for a token to set the login state
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // If token exists, user is logged in
+  //setIsLoggedIn(!!token); // If token exists, user is logged in
   }, []);
 
   useEffect(() => {
@@ -61,16 +57,6 @@ const HeadNavigation: React.FC = () => {
     router.push('/seller');
   };
 
-  const handleLoginClick = () => {
-    // Navigate to Login/Register page
-    router.push('/login');
-  };
-
-  const logout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem("token");
-    router.push('/login'); // Redirect to login page
-  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 px-4 py-2">

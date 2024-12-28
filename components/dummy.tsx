@@ -1,6 +1,3 @@
-import React from "react";
-import Head from "next/head";
-
 //* Import components for each feature
 /*import AccountManagement from "../../components/seller/AccountManagement";
 import ProductManagement from "../../components/seller/ProductManagement";

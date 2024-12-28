@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaUpload, FaPalette, FaFont } from "react-icons/fa";
+import { FaUpload, FaFont } from "react-icons/fa";
 
 const StoreCustomization = () => {
   const [logoPreview, setLogoPreview] = useState(null);

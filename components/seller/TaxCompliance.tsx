@@ -28,20 +28,6 @@ const TaxCompliance = () => {
     ]);
   }, []);
 
-  // Chart Data Example for Tax History (Monthly tax payments)
-  const taxHistoryChartData = {
-    labels: taxData.map((item) => item.month),
-    datasets: [
-      {
-        label: "Tax Payments",
-        data: taxData.map((item) => item.amount),
-        borderColor: "#4BC0C0",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        tension: 0.4,
-        fill: true,
-      },
-    ],
-  };
 
   const onSubmit = (data: any) => {
     console.log(data); // Handle form submission (e.g., API call)

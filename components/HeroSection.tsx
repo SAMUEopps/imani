@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <p className="text-lg sm:text-xl mb-6">{subtitle}</p>
               <a
                 href={buttonLink}
-                className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-700 text-white text-lg font-semibold rounded-lg hover:from-blue-600 hover:to-blue-800 transition"
+                className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-700 text-white text-lg font-semibold rounded-lg hover:from-yellow-600 hover:to-yellow-800 transition"
               >
                 {buttonText}
               </a>

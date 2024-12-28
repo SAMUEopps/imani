@@ -430,7 +430,7 @@ const productData =[
     const [selectedColor, setSelectedColor] = useState("Black");
     const [selectedSize, setSelectedSize] = useState("8");
     const [reviewText, setReviewText] = useState("");
-    const [productQuantity, setProductQuantity] = useState(1);
+    const [] = useState(1);
   
     // Find the product that matches the id from the params
     const product = productData.find((item) => item.id === Number(id));

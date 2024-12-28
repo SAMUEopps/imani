@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import { useRouter } from 'next/navigation'
 import { FaCartShopping } from "react-icons/fa6";
+import Link from 'next/link';
 
 const HeadNavigation: React.FC = () => {
   const [ ] = useState(false);
@@ -73,13 +74,15 @@ const HeadNavigation: React.FC = () => {
               )}
             </button>
             <div className="text-xl font-bold">
-            <a href="/">
+            
+
+            <Link href="/">
               <img 
                 src="/logoimani.jpeg" 
                 alt="YourLogo" 
                 className="h-12 w-auto rounded-full"
               />
-            </a>
+            </Link>
           </div>
           </div>
           {/* Message and Notification Icons */}

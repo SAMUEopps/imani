@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import React, { useState, useEffect } from "react";
 import { FaCheckCircle, FaExclamationTriangle, FaFileAlt } from "react-icons/fa";
@@ -39,7 +39,7 @@ const TaxCompliance = () => {
         <h1 className="text-3xl font-bold text-gray-800">Tax Compliance</h1>
       </div>
 
-      {/* Tax Compliance Status Summary */}
+      {/* Tax Compliance Status Summary *
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between">
           <div>
@@ -72,12 +72,12 @@ const TaxCompliance = () => {
         </div>
       </div>
 
-      {/* Tax History Chart */}
+      {/* Tax History Chart *
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Tax Payments History</h2>
       </div>
 
-      {/* Tax Submission Form */}
+      {/* Tax Submission Form *
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Submit Tax Information</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -111,7 +111,7 @@ const TaxCompliance = () => {
         </form>
       </div>
 
-      {/* Tax Submission History */}
+      {/* Tax Submission History *
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Tax Submission History</h2>
         <table className="min-w-full table-auto">
@@ -145,4 +145,4 @@ const TaxCompliance = () => {
   );
 };
 
-export default TaxCompliance;
+export default TaxCompliance;*/

@@ -5,12 +5,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const AnalyticsReporting = () => {
-  const [data, ] = useState({
-    salesData: [],
-    productData: [],
-    revenueData: [],
-  });
-
+ 
   useEffect(() => {
     // Fetch your analytics data (e.g., from an API)
    

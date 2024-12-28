@@ -5,7 +5,7 @@ import OrderList, { Order } from './OrderList';
 
 const DeliveryDashboard: React.FC = () => {
   // Dummy data for orders
-  const [orders, setOrders] = useState<Order[]>([
+  const [orders] = useState<Order[]>([
     {
       _id: '1',
       customerName: 'John Doe',

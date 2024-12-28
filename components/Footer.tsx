@@ -28,12 +28,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/shop"
-                  className="text-gray-300 hover:text-yellow-600 transition duration-300"
-                >
-                  Shops
-                </a>
+               
               </li>
               <li>
                 <a

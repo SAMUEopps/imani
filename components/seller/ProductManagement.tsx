@@ -1,4 +1,4 @@
-"use client"
+/*"use client"
 
 import React, { useState } from "react";
 
@@ -14,7 +14,7 @@ const ProductManagement = () => {
     discount: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setNewProduct((prev) => ({ ...prev, [name]: value }));
   };
@@ -141,4 +141,4 @@ const ProductManagement = () => {
   );
 };
 
-export default ProductManagement;
+export default ProductManagement;*/

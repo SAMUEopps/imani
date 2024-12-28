@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeadNavigation from "@/components/HeadNavigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillStar, AiOutlineHeart, AiOutlineLink, AiOutlineMessage, AiOutlineShareAlt, AiOutlineStar } from "react-icons/ai";
 
 // Example product data, you would typically fetch this from an API
@@ -31,18 +31,26 @@ const productData = [
 ];
 
 interface ProductDetailPageProps {
-  params: Record<string, string | undefined>; // Adjusted to handle optional string params
+  params: Promise<Record<string, string | undefined>>; // Make params a Promise to handle async behavior
 }
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
-  const { id } = params; // Get the id from params
-
+  const [paramId, setParamId] = useState<string | undefined>(undefined);
   const [selectedColor, setSelectedColor] = useState("Black");
   const [selectedSize, setSelectedSize] = useState("One Size");
   const [reviewText, setReviewText] = useState("");
 
-  // Find the product that matches the id from the params
-  const product = productData.find((item) => item.id === Number(id));
+  useEffect(() => {
+    // Assuming params is a Promise, unwrap it with React.use() or a simple async function
+    const fetchParams = async () => {
+      const resolvedParams = await params;
+      setParamId(resolvedParams.id);
+    };
+
+    fetchParams();
+  }, [params]);
+
+  const product = productData.find((item) => item.id === Number(paramId));
 
   if (!product) {
     return <div>Product not found</div>;

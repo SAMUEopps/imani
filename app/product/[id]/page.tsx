@@ -416,7 +416,35 @@ const productData =[
   ]
 
 
-const ProductDetailPage: React.FC = ({ params }: any) => {
+  interface ProductDetailPageProps {
+    params: {
+      id: string; // or number, depending on how the id is passed
+    };
+  }
+  
+  const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
+    const { id } = params; // Get the id from params (not query)
+  
+    const [selectedColor, setSelectedColor] = useState("Black");
+    const [selectedSize, setSelectedSize] = useState("8");
+    const [reviewText, setReviewText] = useState("");
+    const [productQuantity, setProductQuantity] = useState(1);
+  
+    // Find the product that matches the id from the params
+    const product = productData.find((item) => item.id === Number(id));
+  
+    if (!product) {
+      return <div>Product not found</div>;
+    }
+  
+    const handleReviewSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      // Handle adding the review (e.g., send it to a backend or state)
+      alert("Review submitted!");
+      setReviewText("");
+    };
+
+/*const ProductDetailPage: React.FC = ({ params }: any) => {
   const { id } = params; // Get the id from params (not query)
 
   const [selectedColor, setSelectedColor] = useState("Black");
@@ -436,7 +464,7 @@ const ProductDetailPage: React.FC = ({ params }: any) => {
     // Handle adding the review (e.g., send it to a backend or state)
     alert("Review submitted!");
     setReviewText("");
-  };
+  };*/
 
   return (
     <div>

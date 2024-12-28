@@ -157,70 +157,72 @@ const products: Product[] = [
         },*/
       ];
 
-const Products: React.FC = () => {
-  const renderStars = (rating: number) => {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 >= 0.5;
-
-    return (
-      <>
-        {Array.from({ length: fullStars }, (_, i) => (
-          <AiFillStar key={i} className="text-yellow-400" />
-        ))}
-        {halfStar && <AiFillStar className="text-yellow-400" />}
-        {Array.from({ length: 5 - fullStars - (halfStar ? 1 : 0) }, (_, i) => (
-          <AiOutlineStar key={i} className="text-gray-300" />
-        ))}
-      </>
-    );
-  };
-
-  const router = useRouter();
-
-  const handleProductClick = (productId: number) => {
-    router.push(`/product/${productId}`);
-  };
-
-  return (
-    <div className="p-6">
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-        Explore Our Products
-      </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:gap-6">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105 bg-white cursor-pointer"
-            onClick={() => handleProductClick(product.id)}
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800 truncate">
-                {product.name}
-              </h3>
-              <p className="text-gray-500 font-medium mt-1">Kes {product.price}</p>
-              <div className="flex items-center mt-2">{renderStars(product.rating)}</div>
-              <div className="flex justify-between items-center mt-6">
-                <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-1.5 px-4 sm:py-2 sm:px-6 rounded-full font-bold text-sm sm:text-md shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition-all transform hover:scale-105 flex items-center gap-2">
-                  <FaShoppingCart className="text-base sm:text-lg" />
-                  Add to Cart
-                </button>
-                <button className="text-red-500 hover:text-red-600 transition-transform transform hover:scale-110 sm:hover:scale-125">
-                  <FaHeart size={20} className="sm:size-[24px]" />
-                </button>
-              </div>
+      const Products: React.FC = () => {
+        const renderStars = (rating: number) => {
+          const fullStars = Math.floor(rating);
+          const halfStar = rating % 1 >= 0.5;
+      
+          return (
+            <>
+              {Array.from({ length: fullStars }, (_, i) => (
+                <AiFillStar key={i} className="text-yellow-400" />
+              ))}
+              {halfStar && <AiFillStar className="text-yellow-400" />}
+              {Array.from({ length: 5 - fullStars - (halfStar ? 1 : 0) }, (_, i) => (
+                <AiOutlineStar key={i} className="text-gray-300" />
+              ))}
+            </>
+          );
+        };
+      
+        const router = useRouter();
+      
+        const handleProductClick = (productId: number) => {
+          router.push(`/product/${productId}`);
+        };
+      
+        return (
+          <div className="p-0">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-6 text-center">
+              Explore Our Products
+            </h2>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:gap-6">
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition transform hover:scale-105 bg-white cursor-pointer"
+                  onClick={() => handleProductClick(product.id)}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-36 sm:h-48 object-cover" // Reduced height for smaller screens
+                  />
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-sm sm:text-base font-semibold text-gray-800 truncate">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">
+                      Kes {product.price}
+                    </p>
+                    <div className="flex items-center mt-2">
+                      {renderStars(product.rating)}
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
+                      <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-1 px-3 sm:py-1.5 sm:px-5 rounded-full font-bold text-xs sm:text-sm shadow-md hover:from-yellow-500 hover:to-yellow-700 transition-all transform hover:scale-105 flex items-center gap-1">
+                        <FaShoppingCart className="text-sm sm:text-base" />
+                        Add to Cart
+                      </button>
+                      <button className="text-red-500 hover:text-red-600 transition-transform transform hover:scale-110 sm:hover:scale-125">
+                        <FaHeart size={16} className="sm:size-[20px]" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-  
-  
-};
+        );
+      };
 
 export default Products;

@@ -112,7 +112,7 @@ const HeadNavigation: React.FC = () => {
         {/* Discover, Shops, and Favourites */}
         <div
           className={`flex flex-row items-center justify-center space-x-4 transition-all duration-300 ${
-            isScrolling ? "hidden sm:flex" : "flex"
+            isScrolling ? "hidden sm:flex" : "hidden sm:flex"
           }`}
         >
           <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
@@ -129,21 +129,23 @@ const HeadNavigation: React.FC = () => {
           </button>
         </div>
 
+
         {/* Search */}
-        <div
-          className={`w-full lg:max-w-md transition-all duration-300 ${
-            isScrolling ? "hidden sm:block" : "block"
-          }`}
-        >
-          <div className="relative">
-            <input
-              type="text"
-              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
-              placeholder="Search..."
-            />
-            <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-          </div>
-        </div>
+<div
+  className={`w-full lg:max-w-md transition-all duration-300 ${
+    isScrolling ? "hidden sm:block" : "hidden sm:block"
+  }`}
+>
+  <div className="relative">
+    <input
+      type="text"
+      className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
+      placeholder="Search..."
+    />
+    <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+  </div>
+</div>
+
 
         {/* Message and Notification Icons (Visible only on large screens) */}
         {/*{isLoggedIn ? (*/}

@@ -14,8 +14,6 @@ const HomePage: React.FC = () => {
       <Header />
       <HeadNavigation />
     <div className="px-4 py-0"> {/* Padding added here for the whole page */}
-      <Header />
-      <HeadNavigation />
       <div className="hidden lg:block">
         <CategoriesList />
       </div>

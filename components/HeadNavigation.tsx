@@ -78,7 +78,7 @@ const HeadNavigation: React.FC = () => {
 
             <Link href="/">
               <img 
-                src="/logoimani.jpeg" 
+                src="/imani.jpeg" 
                 alt="YourLogo" 
                 className="h-12 w-auto rounded-full"
               />

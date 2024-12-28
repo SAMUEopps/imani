@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaInfoCircle, FaCogs, FaEnvelope } from 'react-icons/fa'; // Import icons
+import { FaInfoCircle, FaCogs, FaEnvelope, FaPhone } from 'react-icons/fa'; // Import icons
 
 const Header: React.FC = () => {
   return (
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
             </li>
             <li className="sm:hidden">
               <Link href="/contact">
-                <FaEnvelope className="text-white" />
+                <FaPhone className="text-white" />
               </Link>
             </li>
 

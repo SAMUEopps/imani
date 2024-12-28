@@ -133,12 +133,13 @@ const Footer: React.FC = () => {
   <input
     type="email"
     placeholder="Enter your email"
-    className="p-3 rounded-l-md text-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-600 w-full sm:w-auto" // Full width on small screens
+    className="p-2 sm:p-3 rounded-l-md text-gray-800 border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-600 w-full sm:w-auto text-sm sm:text-base"
   />
-  <button className="bg-yellow-600 text-white py-2 px-6 rounded-r-md hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-600 transition duration-300 w-full sm:w-auto mt-2 sm:mt-0"> {/* Full width on small screens */}
+  <button className="bg-yellow-600 text-white py-2 px-4 sm:py-2 sm:px-6 rounded-r-md hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-600 transition duration-300 w-full sm:w-auto mt-2 sm:mt-0 text-sm sm:text-base">
     Subscribe
   </button>
 </div>
+
 
         </div>
 

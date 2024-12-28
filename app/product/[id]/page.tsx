@@ -31,9 +31,7 @@ const productData = [
 ];
 
 interface ProductDetailPageProps {
-  params: {
-    id: string; // The dynamic parameter used for the route
-  };
+  params: Record<string, string>; // Adjust the type of params
 }
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {

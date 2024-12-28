@@ -228,12 +228,12 @@ const HeadNavigation: React.FC = () => {
       Help?
     </button>
 
-    {/* {isLoggedIn ? (
+     {/*{isLoggedIn ? (*/}
       <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
         <FaSignOutAlt className="mr-2" />
         Logout
       </button>
-    ) : (
+   {/*} ) : (
       <button
         className="hidden lg:block text-sm font-medium text-blue-600"
         onClick={handleLoginClick}

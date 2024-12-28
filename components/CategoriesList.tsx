@@ -17,7 +17,7 @@ const categories: Category[] = [
 
 const CategoriesList: React.FC = () => {
   return (
-    <section className="my-4 p-4 lg:p-0">
+    <section className="my-2 p-0 lg:p-0">
       <h2 className="text-2xl font-semibold text-center lg:hidden">Shop by Category</h2>
 
       {/* Small screens: Display categories with images */}

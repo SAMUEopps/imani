@@ -1,7 +1,6 @@
 // pages/index.tsx
 
 import React from 'react';
-import Header from '@/components/Header'; // Adjust the path as needed
 import CategoriesList from '@/components/CategoriesList';
 import HeroSection from '@/components/HeroSection';
 import Products from '@/components/Products';
@@ -11,7 +10,6 @@ import Footer from '@/components/Footer';
 const HomePage: React.FC = () => {
   return (
     <div>
-      <Header />
       <HeadNavigation />
     <div className="px-4 py-0"> {/* Padding added here for the whole page */}
       <div className="hidden lg:block">

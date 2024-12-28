@@ -31,7 +31,7 @@ const productData = [
 ];
 
 interface ProductDetailPageProps {
-  params: Record<string, string>; // Adjust the type of params
+  params: Record<string, string | undefined>; // Adjusted to handle optional string params
 }
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
@@ -209,4 +209,3 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
 };
 
 export default ProductDetailPage;
-

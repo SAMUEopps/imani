@@ -10,6 +10,9 @@ import Footer from '@/components/Footer';
 
 const HomePage: React.FC = () => {
   return (
+    <div>
+      <Header />
+      <HeadNavigation />
     <div className="px-4 py-0"> {/* Padding added here for the whole page */}
       <Header />
       <HeadNavigation />
@@ -30,7 +33,8 @@ const HomePage: React.FC = () => {
       </div>
       <Products/>
       {/*<Shop />*/}
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 };

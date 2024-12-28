@@ -1,4 +1,4 @@
-"use client"
+/*"use client"
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUpload, FaFont } from "react-icons/fa";
@@ -37,7 +37,7 @@ const StoreCustomization = () => {
       <h1 className="text-3xl font-bold text-gray-800">Store Customization</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        {/* Store Logo Upload */}
+        {/* Store Logo Upload *
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Upload Store Logo</h2>
           <div className="flex items-center space-x-4">
@@ -68,7 +68,7 @@ const StoreCustomization = () => {
           </div>
         </div>
 
-        {/* Store Banner Upload */}
+        {/* Store Banner Upload *
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Upload Store Banner</h2>
           <div className="flex items-center space-x-4">
@@ -103,7 +103,7 @@ const StoreCustomization = () => {
           </div>
         </div>
 
-        {/* Color Scheme Customization */}
+        {/* Color Scheme Customization *
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Color Scheme</h2>
           <div className="flex items-center space-x-8">
@@ -128,7 +128,7 @@ const StoreCustomization = () => {
           </div>
         </div>
 
-        {/* Font Customization */}
+        {/* Font Customization *
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Font Customization</h2>
           <div className="flex items-center space-x-8">
@@ -148,7 +148,7 @@ const StoreCustomization = () => {
           </div>
         </div>
 
-        {/* Store Description */}
+        {/* Store Description *
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Store Description</h2>
           <textarea
@@ -159,8 +159,8 @@ const StoreCustomization = () => {
           />
         </div>
 
-        {/* Preview */}
-        <div
+        {/* Preview *
+        <d
           className="bg-white p-6 rounded-lg shadow-lg"
           style={{
             backgroundColor: primaryColor,
@@ -191,7 +191,7 @@ const StoreCustomization = () => {
           </div>
         </div>
 
-        {/* Save Button */}
+        {/* Save Button *
         <button
           type="submit"
           className="w-full py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300"
@@ -203,4 +203,4 @@ const StoreCustomization = () => {
   );
 };
 
-export default StoreCustomization;
+export default StoreCustomization;*/

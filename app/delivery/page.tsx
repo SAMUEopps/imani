@@ -1,23 +1,9 @@
 import DeliveryDashboard from '../../components/DeliveryDashboard';
-import Map from '../../components/Map';
-import DeliveryDetails from '../../components/DeliveryDetails';
+
 import Header from '@/components/Header';
 import HeadNavigation from '@/components/HeadNavigation';
 import Footer from '@/components/Footer';
 
-const dummyTask: {
-  orderId: string;
-  customerName: string;
-  deliveryAddress: string;
-  orderItems: string[];
-  status: 'In Progress' | 'Pending' | 'Completed'; // Ensure status is one of these values
-} = {
-  orderId: 'ORD001',
-  customerName: 'John Doe',
-  deliveryAddress: '123 Main St, City, Country',
-  orderItems: ['Item 1', 'Item 2', 'Item 3'],
-  status: 'In Progress', // Correct status
-};
 
 const DeliveryPage = () => {
   return (

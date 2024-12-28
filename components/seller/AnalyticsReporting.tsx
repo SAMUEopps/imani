@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const AnalyticsReporting = () => {
-  const [data, setData] = useState({
+  const [data, ] = useState({
     salesData: [],
     productData: [],
     revenueData: [],
@@ -16,48 +16,6 @@ const AnalyticsReporting = () => {
    
   }, []);
 
-  // Chart.js Line Chart Data Example
-  const salesChartData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [
-      {
-        label: "Sales Over Time",
-        data: data.salesData,
-        borderColor: "#36A2EB",
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        tension: 0.4,
-        fill: true,
-      },
-    ],
-  };
-
-  const revenueChartData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [
-      {
-        label: "Revenue Over Time",
-        data: data.revenueData,
-        borderColor: "#FF5733",
-        backgroundColor: "rgba(255, 87, 51, 0.2)",
-        tension: 0.4,
-        fill: true,
-      },
-    ],
-  };
-
-  const productChartData = {
-    labels: ["Product 1", "Product 2", "Product 3", "Product 4", "Product 5", "Product 6"],
-    datasets: [
-      {
-        label: "Product Sales",
-        data: data.productData,
-        borderColor: "#4BC0C0",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        tension: 0.4,
-        fill: true,
-      },
-    ],
-  };
 
   // Sample table data
   const tableData = [

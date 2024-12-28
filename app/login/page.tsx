@@ -1,5 +1,5 @@
 // pages/login.tsx
-'use client';
+/*'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -97,7 +97,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login;*/
 
 
 

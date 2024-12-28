@@ -1,5 +1,5 @@
 // pages/signup.tsx
-'use client'; // Ensure the component runs on the client side
+/*'use client'; // Ensure the component runs on the client side
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use the correct router for the app directory
@@ -124,5 +124,5 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp;*/
 

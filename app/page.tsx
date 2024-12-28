@@ -6,7 +6,6 @@ import CategoriesList from '@/components/CategoriesList';
 import HeroSection from '@/components/HeroSection';
 import Products from '@/components/Products';
 import HeadNavigation from '@/components/HeadNavigation';
-import Shop from '@/components/shop';
 import Footer from '@/components/Footer';
 
 const HomePage: React.FC = () => {

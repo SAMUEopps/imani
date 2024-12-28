@@ -20,13 +20,12 @@ import { useRouter } from 'next/navigation'
 import { FaCartShopping } from "react-icons/fa6";
 
 const HeadNavigation: React.FC = () => {
-  const [ setIsLoggedIn] = useState(false);
+  const [ ] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer open/close
 
   useEffect(() => {
     // Check localStorage for a token to set the login state
-    const token = localStorage.getItem("token");
   //setIsLoggedIn(!!token); // If token exists, user is logged in
   }, []);
 
@@ -52,10 +51,7 @@ const HeadNavigation: React.FC = () => {
     router.push('/delivery');
   };
 
-  const handleSellClick = () => {
-    // Navigate to the Delivery Page
-    router.push('/seller');
-  };
+ 
 
 
   return (

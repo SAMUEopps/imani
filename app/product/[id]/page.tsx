@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import HeadNavigation from "@/components/HeadNavigation";
 import React, { useState, useEffect } from "react";
 import { AiFillStar, AiOutlineHeart, AiOutlineLink, AiOutlineMessage, AiOutlineShareAlt, AiOutlineStar } from "react-icons/ai";

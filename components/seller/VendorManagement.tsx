@@ -114,7 +114,7 @@ const VendorManagement = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="4" className="px-6 py-4 text-center text-gray-500">
+                <td className="px-6 py-4 text-center text-gray-500">
                   No vendors found.
                 </td>
               </tr>

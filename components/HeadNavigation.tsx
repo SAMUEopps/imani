@@ -1,247 +1,298 @@
-"use client";
+/*"use client"
+import { useState, useEffect } from 'react';
+import { IoMenuOutline, IoCloseOutline, IoLogoTwitter, IoLogoFacebook, IoLogoDribbble, IoLogoInstagram, IoLogoYoutube } from 'react-icons/io5';
 
-import React, { useEffect, useState } from "react";
-import {
-  FaBars,
-  FaSearch,
-  FaCompass,
-  FaHeart,
-  FaEnvelope,
-  FaBell,
-  FaTimes,
-  FaBalanceScale,
-  FaLifeRing,
-  FaSignOutAlt,
-  FaUserAlt,
-  FaCogs,
-  FaTruck, // Import the "X" icon for closing the drawer
-} from "react-icons/fa";
-import { useRouter } from 'next/navigation'
-import { FaCartShopping } from "react-icons/fa6";
-import Link from 'next/link';
-import Header from "./Header";
-
-const HeadNavigation: React.FC = () => {
-  const [ ] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State for drawer open/close
-
-  useEffect(() => {
-    // Check localStorage for a token to set the login state
-  //setIsLoggedIn(!!token); // If token exists, user is logged in
-  }, []);
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolling(window.scrollY > 10); // Detect if the user has scrolled down
+      setIsScrolled(window.scrollY > 45);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen); // Toggle the drawer visibility
-  };
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
 
-  const router = useRouter();
-  
-  const handleClick = () => {
-    // Navigate to the Delivery Page
-    router.push('/delivery');
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
- 
+  const socialIcons = [
+    { icon: <IoLogoTwitter />, name: 'Twitter' },
+    { icon: <IoLogoFacebook />, name: 'Facebook' },
+    { icon: <IoLogoDribbble />, name: 'Dribbble' },
+    { icon: <IoLogoInstagram />, name: 'Instagram' },
+    { icon: <IoLogoYoutube />, name: 'YouTube' },
+  ];
 
+  const navLinks = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
 
   return (
-    <><Header />
-    <header className="bg-white shadow-md sticky top-0 z-50 px-4 py-2">
-      {/* Responsive Container */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-        {/* Top Row (Small Screens: Nav and Logo on left, Msg and Notification on right) */}
-        <div className="flex items-center justify-between lg:w-auto">
-          {/* Nav and Logo */}
-          <div className="flex items-center space-x-4">
-            <button
-              className="text-2xl p-2 hover:bg-gray-100 rounded-full lg:block" // Keep on large screens
-              onClick={toggleDrawer} // Open the drawer when the hamburger menu is clicked
-            >
-              {isDrawerOpen ? (
-                <FaTimes /> // Show "X" when the drawer is open
-              ) : (
-                <FaBars /> // Show hamburger menu when the drawer is closed
-              )}
-            </button>
-            <div className="text-xl font-bold">
+    <header className={`fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
+      isScrolled ? 'fixed top-0 animate-slideIn' : 'absolute'
+    }`}>
+      <div className="container mx-auto px-4 flex justify-between items-center py-4">
+        <a href="#" className="logo">
+          <img src="/assets/images/logo-dark.svg" alt="Julia home" className="w-16 h-6" />
+        </a>
 
+        {/* Mobile Menu Button *
+        <button
+          onClick={toggleMenu}
+          aria-label="open menu"
+          className="lg:hidden text-3xl text-gray-800"
+        >
+          <IoMenuOutline />
+        </button>
 
-              <Link href="/">
-                <img
-                  src="/imani.jpeg"
-                  alt="YourLogo"
-                  className="h-12 w-auto rounded-full" />
-              </Link>
+        {/* Desktop Navigation *
+        <nav className="hidden lg:flex flex-grow justify-between items-center ml-8">
+          <ul className="flex gap-6 mx-auto">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a href="#" className="text-gray-800 hover:text-red-500 transition-colors">
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-4">
+            <div className="flex gap-4">
+              <a href="mailto:info@email.com" className="text-gray-600 hover:text-red-500">
+                info@email.com
+              </a>
+              <a href="tel:001234567890" className="text-gray-600 hover:text-red-500">
+                00 (123) 456 78 90
+              </a>
             </div>
+            
+            <ul className="flex gap-4">
+              {socialIcons.map((social) => (
+                <li key={social.name}>
+                  <a href="#" className="text-gray-800 hover:text-red-500 text-xl">
+                    {social.icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          {/* Message and Notification Icons */}
-          {/*{isLoggedIn ? (*/}
-          <div className="flex items-center space-x-4 lg:hidden">
-            <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-              <FaCartShopping />
-            </button>
-            <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-              <FaEnvelope />
-            </button>
-            <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-              <FaBell />
-            </button>
-          </div>
-          {/*}) : (
-      <button
-      className="block lg:hidden text-sm font-medium text-blue-600"
-      onClick={handleLoginClick}
-    >
-      Login/Register
-    </button>
-    
-    )}*/}
-        </div>
+        </nav>
 
-        {/* Discover, Shops, and Favourites */}
+        {/* Mobile Navigation *
+        <nav className={`fixed top-0 left-0 h-full w-72 bg-gray-900 text-white p-6 transform transition-transform duration-300 ${
+          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:hidden`}>
+          <div className="flex justify-between items-center mb-8">
+            <img src="/assets/images/logo-light.svg" alt="Julia home" className="w-16 h-6" />
+            <button
+              onClick={toggleMenu}
+              aria-label="close menu"
+              className="p-1 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 transition"
+            >
+              <IoCloseOutline className="text-2xl" />
+            </button>
+          </div>
+
+          <ul className="space-y-4 mb-8">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a href="#" className="block py-2 font-semibold hover:text-red-400">
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mb-8 space-y-2">
+            <a href="mailto:info@email.com" className="block hover:text-red-400">info@email.com</a>
+            <a href="tel:001234567890" className="block hover:text-red-400">00 (123) 456 78 90</a>
+          </div>
+
+          <ul className="flex gap-4">
+            {socialIcons.map((social) => (
+              <li key={social.name}>
+                <a href="#" className="text-xl hover:text-red-400">
+                  {social.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Overlay *
         <div
-          className={`flex flex-row items-center justify-center space-x-4 transition-all duration-300 ${isScrolling ? "hidden sm:flex" : "hidden sm:flex"}`}
-        >
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaCompass className="mr-2" />
-            Discover
-          </button>
-          {/*<button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-      <FaShoppingBag className="mr-2" />
-      Shops
-    </button>*/}
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaHeart className="mr-2" />
-            Wishlist
-          </button>
-        </div>
-
-
-        {/* Search */}
-        <div
-          className={`w-full lg:max-w-md transition-all duration-300 ${isScrolling ? "hidden sm:block" : "hidden sm:block"}`}
-        >
-          <div className="relative">
-            <input
-              type="text"
-              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
-              placeholder="Search..." />
-            <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-          </div>
-        </div>
-
-
-        {/* Message and Notification Icons (Visible only on large screens) */}
-        {/*{isLoggedIn ? (*/}
-        <div className="hidden lg:flex items-center space-x-4">
-          <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-            <FaCartShopping />
-          </button>
-          <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-            <FaEnvelope />
-          </button>
-          <button className="text-2xl p-2 hover:bg-gray-100 rounded-full">
-            <FaBell />
-          </button>
-        </div>
-        {/*}) : (
-   <button
-   className="hidden lg:block text-sm font-medium text-blue-600"
-   onClick={handleLoginClick}
-   >
-   Login/Register
-   </button>
-   )}*/}
+          onClick={closeMenu}
+          className={`fixed inset-0 bg-black transition-opacity ${
+            isMenuOpen ? 'opacity-80 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          } lg:hidden`}
+          role="presentation"
+          aria-hidden={!isMenuOpen}
+        />
       </div>
-
-      {/* Navigation Drawer (Visible only when hamburger menu is clicked) */}
-      <div
-        className={`fixed inset-0 bg-gray-800 bg-opacity-50 transition-all duration-300 ${isDrawerOpen ? "block" : "hidden"} z-50`} // Set high z-index here
-        onClick={toggleDrawer} // Close drawer when the background is clicked
-      >
-        <div
-          className="bg-white p-4 w-64 h-full flex flex-col space-y-6"
-          onClick={(e) => e.stopPropagation()} // Prevent closing the drawer when clicking inside
-        >
-          <button
-            className="text-2xl p-2 hover:bg-gray-100 rounded-full"
-            onClick={toggleDrawer}
-          >
-            <FaTimes />
-          </button>
-
-          {/* Optional buttons can be uncommented when needed */}
-          {/* <button
-      className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full"
-      onClick={handleSellClick} // Trigger the navigation on click
-    >
-      <FaShoppingCart className="mr-2" /> {/* Icon for Start Selling *
-      Start selling
-    </button> */}
-
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaBalanceScale className="mr-2" /> {/* Icon for Compare */}
-            Compare
-          </button>
-
-          {/* <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-      <FaBlog className="mr-2" /> {/* Icon for Blog *
-      Blog
-    </button> */}
-
-          <button
-            className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full"
-            onClick={handleClick} // Trigger the navigation on click
-          >
-            <FaTruck className="mr-2" /> {/* Icon for Delivery */}
-            Delivery
-          </button>
-
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaCogs className="mr-2" /> {/* Icon for Admin Panel */}
-            Admin Panel
-          </button>
-
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaUserAlt className="mr-2" /> {/* Icon for My Profile */}
-            My Profile
-          </button>
-
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaLifeRing className="mr-2" /> {/* Icon for Help */}
-            Help?
-          </button>
-
-          {/*{isLoggedIn ? (*/}
-          <button className="flex items-center px-4 py-2 text-sm font-medium hover:bg-gray-100 rounded-full">
-            <FaSignOutAlt className="mr-2" />
-            Logout
-          </button>
-          {/*} ) : (
-       <button
-         className="hidden lg:block text-sm font-medium text-blue-600"
-         onClick={handleLoginClick}
-       >
-         Login/Register
-       </button>
-     )} */}
-        </div>
-      </div>
-
-    </header></>
+    </header>
   );
-};
+}*/
+"use client"
+import { useState, useEffect } from 'react';
+import { Menu, X, Twitter, Facebook, Dribbble, Instagram, Youtube } from 'react-feather';
 
-export default HeadNavigation;
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const navLinks = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
+  const socialIcons = [
+    { Icon: Twitter, name: 'Twitter' },
+    { Icon: Facebook, name: 'Facebook' },
+    { Icon: Dribbble, name: 'Dribbble' },
+    { Icon: Instagram, name: 'Instagram' },
+    { Icon: Youtube, name: 'Youtube' },
+  ];
+
+  return (
+    <header className={`absolute top-0 left-0 w-full bg-white shadow-md z-50 ${
+      isScrolled ? 'fixed animate-slideIn' : ''
+    }`}>
+      <div className="container mx-auto px-4 flex justify-between items-center py-5">
+        {/* Logo */}
+        <a href="#" className="logo">
+          <img 
+            src="/assets/images/logo-dark.svg" 
+            alt="Julia Home" 
+            className="w-16 h-6 dark-logo" 
+          />
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex flex-grow items-center justify-between ml-8">
+          <ul className="flex gap-8 mx-auto">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a href="#" className="text-gray-800 hover:text-red-500 transition-colors font-bold">
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-6">
+            <div className="flex gap-4">
+              <a href="mailto:info@email.com" className="text-gray-600 hover:text-red-500">
+                info@email.com
+              </a>
+              <a href="tel:001234567890" className="text-gray-600 hover:text-red-500">
+                00 (123) 456 78 90
+              </a>
+            </div>
+            
+            <ul className="flex gap-4">
+              {socialIcons.map(({ Icon, name }) => (
+                <li key={name}>
+                  <a href="#" className="text-gray-800 hover:text-red-500">
+                    <Icon size={20} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className="lg:hidden text-gray-800"
+          aria-label="Open menu"
+        >
+          <Menu size={32} />
+        </button>
+
+        {/* Mobile Navigation */}
+        <nav className={`fixed top-0 left-0 h-full w-72 bg-gray-900 text-white p-6 transform transition-transform duration-300 
+          ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden z-50`}
+        >
+          <div className="flex justify-between items-center mb-8">
+            <img 
+              src="/assets/images/logo-light.svg" 
+              alt="Julia Home" 
+              className="w-16 h-6" 
+            />
+            <button
+              onClick={toggleMenu}
+              className="p-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <ul className="space-y-4 mb-8">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a 
+                  href="#" 
+                  className="block py-2 font-bold hover:text-red-400 transition-colors"
+                  onClick={closeMenu}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mb-8 space-y-2">
+            <a href="mailto:info@email.com" className="block hover:text-red-400 transition-colors">
+              info@email.com
+            </a>
+            <a href="tel:001234567890" className="block hover:text-red-400 transition-colors">
+              00 (123) 456 78 90
+            </a>
+          </div>
+
+          <ul className="flex gap-4">
+            {socialIcons.map(({ Icon, name }) => (
+              <li key={name}>
+                <a href="#" className="hover:text-red-400 transition-colors">
+                  <Icon size={20} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Overlay */}
+        <div
+          onClick={closeMenu}
+          className={`fixed inset-0 bg-black transition-opacity ${
+            isMenuOpen ? 'opacity-80 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          } lg:hidden`}
+        />
+      </div>
+    </header>
+  );
+}

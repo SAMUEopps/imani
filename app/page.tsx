@@ -1,36 +1,32 @@
 // pages/index.tsx
-
-import React from 'react';
-import CategoriesList from '@/components/CategoriesList';
+"use client"
+import React, { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
-import Products from '@/components/Products';
 import HeadNavigation from '@/components/HeadNavigation';
 import Footer from '@/components/Footer';
+import About from '@/components/About';
+import Projects from '@/components/Project';
+import Contact from '@/components/Contact';
+import Topics from '@/components/Topics';
+import FeaturedPosts from '@/components/FeaturedPosts';
+import PopularTags from '@/components/PopularTags';
+import Testimonials from '@/components/TestimonialModal';
 
 const HomePage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div>
       <HeadNavigation />
-    <div className="px-4 py-0"> {/* Padding added here for the whole page */}
-      <div className="hidden lg:block">
-        <CategoriesList />
-      </div>
-    
-      <HeroSection
-        title="Welcome to Our Website"
-        subtitle="We offer the best products for you."
-        imageUrl="https://i.pinimg.com/736x/30/80/d8/3080d8d5f2c890c4f3fde3e9b1645449.jpg" // Replace with your image path
-        buttonText="Shop Now"
-        buttonLink="/shop" // Replace with your shop link
-      /> 
-      
-      <div className="block lg:hidden">
-        <CategoriesList />
-      </div>
-      <Products/>
-      {/*<Shop />*/}
-    </div>
-    <Footer />
+      <HeroSection /> 
+      <About />
+      <Topics />
+      <Projects />
+      <FeaturedPosts />
+      <PopularTags />
+      <Contact />
+      <Testimonials />
+
+      <Footer />
     </div>
   );
 };
